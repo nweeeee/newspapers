@@ -1,0 +1,10 @@
+<h2>All Newspapers</h2>
+
+<% @newspapers.each do |paper| %>
+
+<ul>
+  <li>Title: <%= paper.title %></li>
+  <li>Editor: <%= paper.editor %></li>
+</ul>
+
+<% end %>

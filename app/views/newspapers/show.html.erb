@@ -1,0 +1,14 @@
+<h2>Available Subscription Plans</h2>
+<h2>for the newspaper: <%= @newspaper.title %></h2>
+
+<% if @subscription_plans %>
+
+  <% @subscription_plans.each_with_index do |plan, i| %>
+  <h4><%= "Subscription Plan option #{i+1}:" %></h4>
+  <ul>
+    <li>Price: $<%= plan.price %></li>
+    <li><%= plan.daily ? "Daily" : "Weekly" %></li>
+  </ul>
+  <% end %>
+
+<% end %>

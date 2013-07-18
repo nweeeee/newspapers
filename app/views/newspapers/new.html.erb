@@ -1,0 +1,34 @@
+<h2>New Newspaper Form</h2>
+
+<form action="<%= newspapers_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label>Title
+    <input type="text" name="newspaper[title]">
+  </label>
+  <label>Editor
+    <input type="text" name="newspaper[editor]">
+  </label>
+
+
+  <h2>Add some subscription plans too:</h2>
+  
+  <% 3.times do |i| %>
+  <h4>Subscription Plan <%= i + 1 %>:</h4>
+    <label>Price
+      <input type="text" name="<%= "newspaper[subscription_plans_attributes][#{i}][price]" %>">
+    </label>
+    <label>Daily
+      <input type="radio" name="<%= "newspaper[subscription_plans_attributes][#{i}][daily]" %>" value="true">
+    </label>
+
+    <label>Weekly
+      <input type="radio" name="<%= "newspaper[subscription_plans_attributes][#{i}][daily]" %>" value="false">
+    </label>
+    <br>
+  <% end %>
+
+  <input type="submit" value="Go">
+
+
+</form>

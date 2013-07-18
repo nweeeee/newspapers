@@ -1,0 +1,23 @@
+<h2>Sign Up for newspaper subscriptions</h2>
+
+<form action="<%= users_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Name
+    <input type="text" name="user[name]">
+  </label>
+  
+  <% Newspaper.all.each_with_index do |paper, i| %>
+  <h4>paper.title</h4>
+  <select name="<%= "user[subscription_plans_ids][]" %>">
+    <% paper.subscription_plans.each do |plan| %>
+      <option value="<%= plan.id %>"><%= plan.price %>, <%= plan.daily ? "daily" : "weekly" %></option>
+    <% end %>
+    
+    
+  </select>
+  <br>
+  <% end %>
+  
+  <input type="submit" value="Go">
+  
+</form>
